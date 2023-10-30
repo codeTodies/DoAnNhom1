@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DoAnNhom1.Models.Tree>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center text-success">Tree</h1>
+<h4 class="text-success">@TempData["nofi"]</h4>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameTree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecriptionTree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageTree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region.NameRe)
+            </th>
+            <th></th>
+        </tr>
+    <thead/>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameTree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DecriptionTree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-center"><img src="@Url.Content(item.ImageTree)" alt="Image" width="450" height="200" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region.NameRe)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TreeID }, new { @class = "btn btn-primary btn-sm" })
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TreeID }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+</table>
+

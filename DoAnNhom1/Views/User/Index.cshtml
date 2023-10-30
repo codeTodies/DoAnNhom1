@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DoAnNhom1.Models.AdminUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center text-success">User</h1>
+<h4 class="text-success">@TempData["nofi"]</h4>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordUser)
+            </th>
+            <th></th>
+        </tr>
+    <thead/>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PasswordUser)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+</table>

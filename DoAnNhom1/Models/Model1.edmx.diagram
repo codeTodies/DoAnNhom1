@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79b5553931094eccbbffe0cd36945854" Name="Diagram1">
+        <EntityTypeShape EntityType="GredModel.AdminUser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GredModel.Customer" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GredModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GredModel.OrderTree" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GredModel.Region" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GredModel.Tree" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="GredModel.FK__OrderTree__IDCus__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="GredModel.FK__OrderDeta__IDOrd__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="GredModel.FK__OrderDeta__IDtre__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="GredModel.FK_Pro_Category" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

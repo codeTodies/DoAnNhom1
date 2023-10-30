@@ -1,0 +1,65 @@
+﻿@model DoAnNhom1.Models.Tree
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4 class="text-danger">@ViewBag.nofi</h4>
+@using (Html.BeginForm("Edit", "Tree", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+{
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.TreeID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NameTree, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.NameTree, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NameTree, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DecriptionTree, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.DecriptionTree, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DecriptionTree, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Region, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(model => model.IDRe, ViewBag.Regions as SelectList, "--Select Region --", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageTree, htmlAttributes: new { @class = "control-label" })
+                    <img src="@Url.Content(Session["imgPath"].ToString())" class="img-fluid" id="previewImg" />
+                    <input type="file" name="UploadImage" class="form-control-file" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
